@@ -1,0 +1,1503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<title>multi client dashboard</title>
+<meta http-equiv="Content-Language" content="en-us" />
+
+</head>
+
+<style>
+    /* general classes and settings */
+    .floatLeft {
+        float: left;
+        width: 294px;
+        margin-left:10px;
+        overflow:hidden;
+    }
+
+    .floatRight {
+        float: right;
+        width: 700px;
+    }
+
+    .radiusCornersHeader {
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+       border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .radiusCorners {
+       padding-top: 1px;
+       padding-bottom: 3px;
+       padding-right: 8px;
+       padding-left: 8px;
+       margin:3px;
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+       border-bottom-left-radius: 10px;
+       border-bottom-right-radius: 10px;
+        border: 1px solid rgb(221,217,197);
+        background: rgb(221,217,197);
+        /* believe these just for compat with firefox, chrome? */
+       -moz-border-radius: 10px;
+       -webkit-border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .radiusCornersOutlined {
+       padding-top: 1px;
+       padding-bottom: 3px;
+       padding-right: 8px;
+       padding-left: 8px;
+       margin: 3px; 
+       border-top-left-radius: 10px;
+       border-top-right-radius: 10px;
+       border-bottom-left-radius: 10px;
+       border-bottom-right-radius: 10px;
+       border: 2px solid rgb(221,217,197);   
+       background: #ffffff;
+       /* believe these just for compat with firefox, chrome? */
+       -moz-border-radius: 10px; 
+       -webkit-border-radius: 10px; 
+       margin-bottom: 10px;
+    }
+      .pageHeading {
+      font-size:22px;
+      font-family: Verdana, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#504F43;
+      line-height: 26px;
+      text-align: center;
+    }
+
+    .labelHeading1 {
+        font-size: 19px;
+        line-height: 23px;
+        font-weight: bold;
+        margin-top:0px;
+        margin-bottom:10px;
+        padding-bottom:5px;
+        margin-left:0px;
+        margin-right:0px;    
+    }
+    
+    .labelHeading2 {
+        font-size:16px;
+        font-weight: bold;
+        margin-top:6px;
+        margin-bottom:3px;
+        margin-left:0px;
+        margin-right:0px;
+    }
+    
+    .labelHeadingComp {
+        font-size:16px;
+        font-weight: bold;
+        margin-top:6px;
+        margin-bottom:3px;
+        margin-left:0px;
+        margin-right:0px;
+    }
+    .labelHeading2Client {
+        font-size:16px;
+        font-weight: bold;
+        margin-top:0px;
+        margin-bottom:0px;
+        margin-left:0px;
+        margin-right:0px;
+        line-height: 14px;
+    }        
+	
+	.radioGroup {
+	    background-color:#fff;
+		border-width:1px;
+		border-style:solid;
+		border-bottom-color:#aaa;
+		border-right-color:#aaa;
+		border-top-color:#ddd;
+		border-left-color:#ddd;
+		border-radius:3px;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+	}
+	
+	.chromeDisabled {
+		opacity: .3;
+	}
+	
+    #clientName {
+        font-size:22px;
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-weight: bold;
+        margin-top:0px;
+        margin-bottom:0px;
+        margin-left:0px;
+        margin-right:0px;
+        line-height: 18px;
+   }
+
+    #JustRight {
+       align:right;    
+    }
+
+/* start navigation  */
+
+
+a:focus {
+outline: none;
+}
+
+
+.panel {
+position: absolute;
+z-index:200;
+top: 0px;
+left: 0;
+display: none;
+background: #376092;
+border:1px solid #111111;
+border-top-left-radius: 0px;
+border-top-right-radius: 10px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 10px;
+-moz-border-radius-topright: 10px;
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-webkit-border-bottom-right-radius: 10px;
+width: 160px;
+height: 700px;
+padding: 0px 20px 0px 20px;
+filter: alpha(opacity=100);
+opacity: .2;
+}
+
+.panel p{
+margin: 0 0 15px 0;
+padding: 0;
+color: #cccccc;
+}
+
+
+a.trigger{
+position: absolute;
+z-index:300;
+text-decoration: none;
+top: 0px; 
+left: 0;
+font-size: 14px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 2px 30px 2px 30px;
+font-weight: 700;
+border:1px solid #444444;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+display: block;
+filter: alpha(opacity=100);
+opacity: 1.0;
+background:#5A728F;
+}
+
+a.trigger:hover{
+position: absolute;
+z-index:300;
+text-decoration: none;
+top: 0px; 
+left: 0;
+font-size: 14px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 2px 30px 2px 30px;
+font-weight: 700;
+border:1px solid #444444;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+display: block;
+filter: alpha(opacity=70);
+opacity: .70;
+background:#435568;
+}
+
+a.active.trigger {
+background:#5A728Ft;
+}
+
+a.active.trigger:hover {
+background:#7B8EA6t;
+}
+
+.columns{
+clear: both;
+width: 330px;
+padding: 0 0 0 0;
+
+}
+
+.logo {
+padding: 20px 10px 30px 5px;
+    }
+    
+p.menu1 {
+      font-size:40px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#FFF;
+      line-height: 40px;
+    }
+.menu1b {
+      font-size:34px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#FFF; 
+      line-height: 30px;     
+    }
+    
+   
+p.menu2 {
+      font-size:30px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#FFF; 
+    }
+    
+.menu2b {
+      font-size:25px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#FFF;
+    } 
+    
+   
+p.menu2b a, p.menu2b a:visited {
+      font-size:25px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#FFF;
+      text-decoration: none;
+    }     
+    
+p.menu2b a:hover {
+      font-size:25px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#fff;
+      text-decoration: underline;
+    }
+    
+p.number {
+      font-size:48px;
+      font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+      font-weight: bold;
+      color:#FFF;
+    }
+
+/* end navigation */
+
+/* single client view */
+
+a:focus {
+outline: none;
+}
+
+
+a.triggerview{
+position: absolute;
+z-index:300;
+text-decoration: none;
+top: 0px; left: 100px;
+font-size: 14px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 2px 25px 2px 25px;
+font-weight: 700;
+border:1px solid #444444;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 20px;
+-webkit-border-bottom-left-radius: 20px;
+display: block;
+filter: alpha(opacity=70);
+opacity: .70;
+background:#5A728F;
+}
+
+a.triggerview:hover{
+position: absolute;
+z-index:300;
+text-decoration: none;
+top: 0px; left: 100px;
+font-size: 14px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 2px 25px 2px 25px;
+font-weight: 700;
+border:1px solid #444444;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 20px;
+-webkit-border-bottom-left-radius: 20px;
+display: block;
+filter: alpha(opacity=70);
+opacity: .70;
+background:#435568;
+}
+
+a.active.triggerview {
+background:#5A728F ;
+}
+
+a.active.triggerview:hover {
+background:#7B8EA6 ;
+}
+
+.columnsview{
+clear: both;
+width: 330px;
+padding: 0 0 0 0;
+
+}
+
+/* end single client view */
+
+/* start compare view */
+
+a:focus {
+ outline: none;
+}
+
+.panelright {
+ position: absolute;
+ z-index:100;
+ top: 0px;
+ left:787px;
+ display: none;
+ background: #cccccc;
+ border:1px solid #C6BE9B;
+ border-right: 0px;
+ border-top-left-radius: 0px;
+ border-top-right-radius: 0px;
+ border-bottom-left-radius: 10px;
+ border-bottom-right-radius: 0p;
+ -moz-border-radius-topright: 10px;
+ -webkit-border-top-left-radius: 0px;
+ -moz-border-radius-bottomleft: 10px;
+ -webkit-border-bottom-left-radius: 10px;
+ width: 180px;
+ height: 700px;
+ padding: 0px 20px 0px 20px;
+ filter: alpha(opacity=80);
+ opacity: .80;
+}
+
+.panelright p{
+margin: 0 0 15px 0;
+padding: 0;
+color: #cccccc;
+}
+
+a.triggerright{
+position: absolute;
+z-index:300;
+text-decoration: none;
+top: 0px; 
+left: 788px ;
+font-size: 14px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#303030;
+padding: 15px 10px 15px 10px;
+font-weight: 700;
+padding: 2px 30px 2px 30px;
+font-weight: 700;
+border:1px solid #444444;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+display: block;
+filter: alpha(opacity=70);
+opacity: .70;
+background: #C6BE9B;
+}
+
+a.triggerright:hover{
+position: absolute;
+z-index:300;
+text-decoration: none;
+top: 0px; 
+left: 788px ;
+font-size: 14px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#303030;
+padding: 15px 10px 15px 10px;
+font-weight: 700;
+padding: 2px 30px 2px 30px;
+font-weight: 700;
+border:1px solid #444444;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+display: block;
+filter: alpha(opacity=70);
+opacity: .70;
+background:rgb(221,217,197);
+}
+
+a.active.triggerright {
+background:#5A728F ;
+}
+
+a.active.triggerright:hover {
+background:#7B8EA6;
+}
+
+.columnsright{
+clear: both;
+width: 330px;
+padding: 0 0 0 0;
+
+}
+
+/* end compare view */
+
+    ul {
+        list-style-type: circle;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    li {
+        text-align:left;
+        margin-top: 0px;
+        margin-right: 0px;
+       margin-bottom: 0px;
+       margin-left: 0px;
+      padding: 0;
+        margin: 0;
+   }
+    
+    select {
+        font-size:22px;
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-weight: bold;
+        margin:0px;
+        padding:0px;
+        line-height: 18px;
+        background: rgb(221,217,197);
+        border:none;
+        width:100%;
+    }
+    
+    option.selectme {
+        background-color:white;
+        border:0px;
+        margin:0px;
+        padding:0px;        
+    }
+
+
+    /* styles for specific elements */
+    html, body {
+        font-size:16px;
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color:#CCC;
+        
+    }
+
+
+    #content {
+        /* dimensions of overall dashboard (ipad dimensions) */
+       width: 1024px;
+       height: 768px;
+    }
+
+   #header {
+       height: 20%;
+        background: #ffffff;
+       padding: 5px;
+   }
+
+    #clientPhoto {
+        height: 80px;
+       width: 80px;
+      background: rgb(221,217,197);
+        vertical-align:top;
+        text-align:left;
+    }
+
+    .ColOne {
+        padding-left:0px;
+        padding-right:15px;
+        vertical-align:top;
+    }
+
+    .ColTwo {
+        padding-left:0px;
+        padding-right:0px;
+        margin-top:0px;
+        text-align:right;
+       vertical-align:top;
+    }
+   .ColHeadSmallRight {
+       font-size:12px;
+       text-align: right;
+       color: #996;
+        margin-bottom: 0px;
+       padding-bottom: 0px;
+    }
+   
+    .ProgIndicator {
+        color: #996;
+      font-weight:500;
+       }
+       
+    #ProgIcon {
+        font-weight:900;
+        }
+
+    .ExpandCollapse {
+        float:right;
+        font-weight: bold;
+        font-size: 18px;
+        vertical-align: top;
+        text-decoration: none;
+    } 
+    
+     .ExpandCollapse a {
+        color: #996;
+        text-decoration:none;
+        text-align:right;
+     }
+     
+    #lastSessionNotes {
+        overflow:scroll;
+        height: 53px;
+        overflow-x: hidden;
+        }
+
+    #leftPanel {
+        background: #ffffff;
+        height: 90%;
+        padding: 5px;
+    }
+
+    #rightPanel {
+        height: 90%;
+        background: #ffffff;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding: 5px;
+    }
+
+    .ScaleName {
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 12px;
+    }
+
+    #visProgress {
+        background: #ffffff;
+        height: 400px;
+        margin: 3px;
+        padding: 3px;
+        border: 1px solid #FFFFFF;   
+    }
+    
+    #patientProgress {
+        float: left;
+        width: 440px;
+        background: lightblue;
+        margin: 3px;
+        padding: 3px;
+        border: 1px solid #FFFFFF;   
+    }
+    
+    #comparisonCharts {
+        width: 180px;
+        display: block;
+        margin: 3px;
+        margin-top:50px;
+        padding: 3px; 
+        z-index:300;
+    }
+
+    #container {
+        background: #ffffff;
+        height: 477px;
+        margin: 3px;
+        padding: 3px;
+        border: 1px solid #FFFFFF;   
+    }
+
+    #visClientList {
+        background: #ffffff;
+        height: 500px;
+        margin: 3px;
+        padding: 3px;
+        border: 1px solid #FFFFFF;   
+    }
+    
+    .comparison {
+        width: 100%;
+        border-style: solid;
+        border-width: 1px;        
+        border-color: black;
+    }
+    
+.meter {
+    height: 8px;  /* Can be anything */
+    position: relative;
+    background: #555;
+    vertical-align:top;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    padding: 4px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+    -moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+    box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.meter > span {
+    display: block;
+    height: 100%;
+       -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+           -moz-border-radius-topright: 8px;
+        -moz-border-radius-bottomright: 8px;
+               border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        -webkit-border-top-left-radius: 20px;
+     -webkit-border-bottom-left-radius: 20px;
+            -moz-border-radius-topleft: 20px;
+         -moz-border-radius-bottomleft: 20px;
+                border-top-left-radius: 20px;
+             border-bottom-left-radius: 20px;
+    background-color: rgb(43,194,83);
+    background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0, rgb(43,194,83)),
+      color-stop(1, rgb(84,240,84))
+     );
+    background-image: -webkit-linear-gradient(
+      center bottom,
+      rgb(43,194,83) 37%,
+      rgb(84,240,84) 69%
+     );
+    background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(43,194,83) 37%,
+      rgb(84,240,84) 69%
+     );
+   background-image: -ms-linear-gradient(
+      center bottom,
+      rgb(43,194,83) 37%,
+      rgb(84,240,84) 69%
+     );
+    background-image: -o-linear-gradient(
+      center bottom,
+      rgb(43,194,83) 37%,
+      rgb(84,240,84) 69%
+     );
+    -webkit-box-shadow:
+      inset 0 2px 9px  rgba(255,255,255,0.3),
+      inset 0 -2px 6px rgba(0,0,0,0.4);
+    -moz-box-shadow:
+      inset 0 2px 9px  rgba(255,255,255,0.3),
+      inset 0 -2px 6px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}    
+  .homeworklist {
+      padding:0;
+      margin:0;
+      text-align:right
+      }
+      
+    .legend {
+     font-size:14px;
+     line-height:12px;
+        }
+        
+   table.legend td {
+    padding-right:4px;   
+    padding-top:0px;
+   padding-bottom:0px;
+       }
+        
+
+.heatmap {
+    padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    color:black;
+    font-size:10pt;
+    font-family:Calibri, sans-serif;
+    white-space:nowrap;
+    border-top-color: #999;
+    float: left;
+    }
+.tabletitle {
+    color:#333;
+   font-weight:900;
+    font-size:14px;
+    vertical-align: top;
+    }
+.tabledate {
+    font-size:10px;
+   font-family: "MS Gothic", monospace;
+   color:#666;
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg);   
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);   
+    }
+
+.heattitle {
+font-weight:bold;
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }
+    
+.heatcelltitle {
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }    
+
+.heatsubtitle {
+color:#666;
+padding-left:10px;
+padding-right:5px;
+border-bottom: 1px solid #EAEAEA;
+    }    
+
+.Titleheatcell {
+padding-left:5px;
+padding-right:5px;
+border-left: 1px solid #EAEAEA;
+border-right: 1px solid #EAEAEA;
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }
+.TitleheatcellNormal {
+background-color:#FFF;
+border-left: 1px solid #EAEAEA;
+border-right: 1px solid #EAEAEA;
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }
+.TitleheatcellMild {
+background-color:#F5EC7A;
+border-left: 1px solid #EAEAEA;
+border-right: 1px solid #EAEAEA;
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }
+.TitleheatcellMod {
+background-color:#F93;
+border-left: 1px solid #EAEAEA;
+border-right: 1px solid #EAEAEA;
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }
+.TitleheatcellSevere {
+background-color:#E82020;
+border-left: 1px solid #EAEAEA;
+border-right: 1px solid #EAEAEA;
+border-bottom: 1px solid #999;
+border-top: 1px solid #999;
+    }
+
+.heatcell {
+padding-left:5px;
+padding-right:5px;
+border: 1px solid #EAEAEA;
+    }
+.heatcell0 {
+background-color:#FFF;
+border: 1px solid #EAEAEA;
+    }
+.heatcell1 {
+background-color:#CCC;
+border: 1px solid #EAEAEA;
+    }
+.heatcell2 {
+background-color:#999;
+border: 1px solid #EAEAEA;
+    }
+.heatcell3{
+background-color:#666;
+border: 1px solid #EAEAEA;
+    }
+.radiusCornersheat {
+    padding-top: 1px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid rgb(221,217,197);
+    background: rgb(221,217,197);
+    width:640px;
+    /* believe these just for compat with firefox, chrome? */
+        -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin-bottom: 10px;
+    float: left;
+    }
+
+
+
+
+.clientlisttable {
+    border-collapse:collapse;    
+    }
+
+.clientlisttable th {
+    padding-left:5px;
+    padding-right:5px;
+    border-top: 1px solid #999;
+    font-size: 12px;
+    font-weight: bold;
+    text-align:left;
+    vertical-align:top;  
+    border-bottom: 1px solid #999;
+    }  
+
+.clientlisttable td {
+    padding-left:5px;
+    padding-right:5px;
+    border: 1px solid #EAEAEA;
+    font-size: 12px;
+    color:#666;
+}
+
+/* tooltip */
+a.info{
+    position:relative; /*this is the key*/
+    z-index:24; background-color:#background: rgb(221,217,197);;
+    color:#000;
+    text-decoration:none}
+
+a.info:hover{z-index:25; background-color:rgb(221,217,197)}
+
+a.info span{display: none}
+
+a.info:hover span{ /*the span will display just on :hover state*/
+    display:block;
+    position:absolute;
+    bottom:0em; left:0em; width:18em;
+    border:1px solid rgb(221,217,197);
+    padding: 5px;
+    background-color:#FFF; 
+    color:#000;
+    text-decoration: none
+    }
+</style>
+
+<script type="text/javascript">
+    // turn on/off visualization series when someone clicks on a checkbox
+
+    // need to keep track of previously selected radio button ourselves since event doesn't fire for unchecked.
+	// This variable should match the default selected radio button (if smart, we could set inside document.Ready())
+	var lastSelectedRadioId = "MeasDep";
+	
+	function visControlChanged1(e) {
+		// hide? last selected series via the 'lastSelectedRadioId' variable
+		// window.chart.series[x].hide();
+		alert("last selected id = " + lastSelectedRadioId);
+		
+		// update lastSelectedRadioId value
+		lastSelectedRadioId = e.target.id;
+		
+        switch(e.target.id) {
+        case "MeasDep":
+            alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));        
+            break;
+            
+        case "MeasAnx":
+            alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+            break;
+            
+        case "MeasStress":
+            alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+            break;
+			
+        case "MeasAlli":
+           alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+            break;
+
+        case "MeasRead":
+            alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+         break;
+            
+       case "MeasSS":
+            alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+            break;
+
+        default:
+            window.alert("unknown control: " + e.target.id);    
+        }
+    }
+
+    // add eventlistners to elements in document when page loads
+    function addListeners() {    
+        // get all checkboxes by name and add listener
+        var visControlCheckboxes = document.getElementsByName("radio");
+		for (var i = 0; i < visControlCheckboxes.length; i++) {
+            visControlCheckboxes[i].addEventListener('click', visControlChanged1, false);
+        }
+    }
+
+//expand collapse demographics		                                   		
+    function toggle() {
+        var ele = document.getElementById("toggleText");
+        var text = document.getElementById("displayText");
+        var icon = document.getElementById("hideText");
+        if(ele.style.display == "block") {
+            ele.style.display = "none";
+            text.innerHTML = "+";
+			icon.innerHTML = "";
+        }
+        else {
+            ele.style.display = "block";
+            text.innerHTML = "&#8211;";
+			icon.innerHTML = "^";
+        }
+    }
+
+	// code idea from: http://www.netmechanic.com/news/vol4/javascript_no20.htm
+	function mouseOverRow(row) {
+		row.style.backgroundColor = "yellow";
+		// clientId of current cell = row.cells[1].innerText
+		
+		document.getElementById("clientList").innerText = "client ID of current row = " + row.cells[1].innerText;
+	}
+
+	function mouseOutRow(row) {
+		row.style.backgroundColor = "rgb(221, 217, 197)";
+	}
+	
+    // when page loads, add eventlisteners
+    window.addEventListener('load', addListeners, false);
+</script> 
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script>
+    $(function() {
+        $(".meter > span").each(function() {
+            $(this)
+                .data("origWidth", $(this).width())
+                .width(0)
+                .animate({
+                    width: $(this).data("origWidth")
+                }, 1200);
+        });
+    });
+</script>
+
+<!-- menu -->
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".trigger").click(function(){
+		$(".panel").toggle("fast");
+		$(this).toggleClass("active");
+		return false;
+	});
+});
+</script>
+<!--end menu -->
+
+<!-- compare view poput -->
+
+<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".triggerright").click(function(){
+		$(".panelright").toggle("fast");
+		$(this).toggleClass("activeright");
+		return false;
+	});
+});
+</script>
+
+<!--end compare view popout -->
+
+
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+$(function() {
+
+	//Create an empty array to hold the data
+	var seriesOptions = [];
+	
+	//Depression data
+	seriesOptions[0] = {
+		name : 'Patient 1',
+		marker : {
+			enabled : true,
+			radius : 3
+		},
+		data :
+			[[Date.UTC(2012, 1, 27), 42],
+			 [Date.UTC(2012, 2, 5), 35],
+			 [Date.UTC(2012, 2, 12), 25],
+			 [Date.UTC(2012, 2, 17), 20],
+			 [Date.UTC(2012, 2, 24), 15]],
+
+		tooltip: {
+			valueDecimals: 0
+		}
+	};
+	
+	//Anxiety data
+	seriesOptions[1] = {
+		name : 'Patient 2',
+		data :
+			[[Date.UTC(2012, 1, 27), 16],
+			 [Date.UTC(2012, 2, 5), 13],
+			 [Date.UTC(2012, 2, 12), 13],
+			 [Date.UTC(2012, 2, 17), 8],
+			 [Date.UTC(2012, 2, 24), 5]],
+		marker : {
+			enabled : true,
+			radius : 3
+		},
+		tooltip: {
+			valueDecimals: 0
+		}
+	};
+	
+	//Stress data
+	seriesOptions[2] = {
+		name : 'Patient 3',
+		data :
+			[[Date.UTC(2012, 1, 27), 38],
+			 [Date.UTC(2012, 2, 5), 42],
+			 [Date.UTC(2012, 2, 12), 35],
+			 [Date.UTC(2012, 2, 17), 25],
+			 [Date.UTC(2012, 2, 24), 50]],
+		marker : {
+			enabled : true,
+			radius : 3
+		},
+		 tooltip: {
+			valueDecimals: 0
+		}
+	};
+	
+	// Create the chart
+	window.chart = new Highcharts.StockChart({
+
+		//Specify where to render the new chart
+		chart : {
+			renderTo : 'container'
+		},
+
+		//Specify default selection width of range selector
+		rangeSelector : {
+			selected : 1				
+		},
+		
+		//Specify title
+		title : {
+			text : 'All clients'
+		},
+
+		//Specify dataset
+		series: seriesOptions		
+	});
+});
+</script>
+<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+</head>
+
+<body>
+<div id="content">
+    <div id="leftPanel" class="floatLeft">
+        <p class="labelHeading1" style="padding-top:20px;padding-bottom:0px;padding-left:10px;margin-bottom:0px;">Show</p>        
+        <div id="visShowControls7" class="radiusCorners">
+          <table class="legend">
+            <tr>
+              <td class="labelHeading1">My Therapists</td>
+            </tr>
+            <form action="" method="get" name="MyTher" id="MyClients" >
+              <tr disabled>
+                <td width="261"><input name="MyTher" type="checkbox" id="MyTher" checked="checked"/>
+                  Current
+                  </input></td>
+              </tr>
+            </form>
+          </table>
+        </div>
+        <div id="visShowControls" class="radiusCorners"> 
+      <table class="legend">
+                <tr>
+                    <td class="labelHeading1">My Clients</td>
+                </tr>
+                <form action="" method="get" name="MyClients" >                
+					<tr disabled>
+						<td width="261"><input name="current" type="checkbox" id="current" checked="checked" >
+						  Current              </input></td>
+					</tr>
+					<tr>            
+					<td disabled>
+						<input type="checkbox" name="pastCurrent" id="pastCurrent" >
+						Past &amp; Current
+					</td>  
+                </tr>
+				</form>
+            </table>
+        </div>
+        <div id="visShowControls3" class="radiusCorners">
+            <table class="legend">
+              <tr>
+                <td class="labelHeading1">Measures</td>
+                <td class="labelHeading2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="120">
+                  <form id="measures" name="measures" method="post" action="" >
+                      <label>
+                        <input type="radio" name="radio" id="MeasDep" value="MeasDep" checked="checked" />
+                        Depression DASS</label>
+				  
+                      <br />
+                      <label>
+                        <input type="radio" name="radio" id="MeasAnx" value="MeasAnx" />
+                        Anxiety DASS</label>
+                      <br />
+                      <label>
+                        <input type="radio" name="radio" id="MeasStress" value="MeasStress" />
+                        Stress DASS</label>
+				</td>
+                <td>            
+                    <label>
+                          <input type="radio" name="radio" id="MeasAlli" value="MeasAlli"/>
+							Alliance (HAQ-2)</label>
+                        <br />
+                        <label>
+                          <input type="radio" name="radio" id="MeasRead" value="MeasRead" />
+                      Readiness (URICA)</label>
+                        <br />
+                        <label>
+                          <input type="radio" name="radio" id="MeasSS" value="MeasSS" />
+                          Soc. Support (MOS)</label>
+                      
+                  </form>
+				</td>
+              </tr>
+            </table>
+      </div>
+        <div id="visShowControls2" class="radiusCorners">
+        <table width="100%" >
+          <tr>
+            <td><span class="labelHeading1">Demographics</span></td>
+            <td><span class="ExpandCollapse"><a id="displayText" href="javascript:toggle();">+</a></span></td>
+             </td>
+          </tr>
+          <tr id="toggleText" style="display:none;">
+            <td width="103" style="vertical-align:top"><div class="labelHeading2">gender</div>
+
+        <form class="chromeDisabled" action="" method="get" name="gender" disabled> 
+			<input disabled class="info" name="female" type="checkbox" id="female" checked="checked"/> Female
+			<br />
+			<input disabled name="male" type="checkbox" id="male" checked="checked" /> Male
+        </form>
+              
+        <div class="labelHeading2">age</div>
+            <form class="chromeDisabled" action="" method="get" name="age" disabled>
+                <input disabled name="age_all" type="checkbox" id="age_all" checked="checked" />
+			All<br />
+        <input disabled type="checkbox" name="age_to18" id="age_to18" />
+            up to 18        <br />
+            <input disabled type="checkbox" name="19to30" id="19to30" />
+              19 - 30<br />
+              <input disabled type="checkbox" name="age_31to45" id="age_31to45" />
+              31 - 45<br />
+              <input disabled type="checkbox" name="age_46to65" id="age_46to65" />
+              46 - 65<br />
+              <input disabled type="checkbox" name="age_67to80" id="age_67to80" />
+              67 - 80<br />
+              <input disabled type="checkbox" name="age_81plus" id="age_81plus" />
+              81 +</p></form>
+            </td>
+            <td width="163" style="vertical-align:top">
+			
+			<div class="labelHeading2">race &amp; ethnicity</div>
+			<form class="chromeDisabled" action="" method="get" name="raceANDeth" disabled>
+			<input disabled name="re_all" type="checkbox" id="re_all" checked="checked" />
+              All<br />
+                <input disabled type="checkbox" name="re_AmerIndAk" id="re_AmerIndAk" />
+              American Indian/<br />
+        <span style="margin-left:23px;">Alaska Native</span><br />
+                  <input disabled type="checkbox" name="re_asian" id="re_asian" />
+                  Asian
+                  <br />
+                  <input disabled type="checkbox" name="re_blkAfAmer" id="re_blkAfAmer" />
+                  Black/African<br /><span style="margin-left:23px;">American</span>
+              <br />
+                  <input disabled type="checkbox" name="re_HIpac" id="re_HIpac" />
+                  Native Hawaiian/<br /><span style="margin-left:23px;">Pacific Islander</span>
+          <br />
+                  <input disabled type="checkbox" name="re_white" id="re_white" />
+              White</p></form>
+            </p>          </p></td>
+          </tr>
+        </table>
+        </div>
+      
+        <p class="labelHeading1" style="padding-top:10px;padding-bottom:0px;padding-left:10px;margin-bottom:0px;">Filter By <span class="ExpandCollapse" style="margin-right:15px"><a id="hideText" href="javascript:toggle();"></a></span></p>
+        <div id="visShowControls4" class="radiusCornersOutlined">
+            <table class="legend">
+            <td colspan="2" class="labelHeading1">Diagnoses</td>
+            <td class="labelHeading1">Treatment</td>
+          </tr>
+          <tr>
+            <td width="24" style="vertical-align:top;"><div class="labelHeading2">1st</div>
+
+                 <input type="checkbox" name="primeMood" id="primeMood" />
+                  <br />
+                  <input type="checkbox" name="primeAnx" id="primeAnx" />
+                  <br />
+        <input type="checkbox" name="primeSubAbuse" id="primeSubAbuse" />            
+                  <br />
+                  <input type="checkbox" name="primeSchiz" id="primeSchiz" />
+                  <br />
+                  <input type="checkbox" name="primeAxisii" id="primeAxisii" />
+                  <br />
+            </td>
+            <td width="141" style="vertical-align:top"><div class="labelHeading2">2nd</div>
+
+                <input type="checkbox" name="secMood" id="secMood" />
+              Mood/Depression <br />
+        <input type="checkbox" name="secAnx" id="secAnx" />
+              Anxiety <br />
+        <input type="checkbox" name="secSubUse" id="secSubUse" />
+              Substance Use<br />
+        <input type="checkbox" name="secSchiz" id="secSchiz" />
+              Schizophrienia <br />
+        <input type="checkbox" name="secAxisii" id="secAxisii" />
+            AXIS II </td>
+       <td width="87" style="vertical-align:top;padding-left:10px;">
+            <p>
+            <input type="checkbox" name="ACT" id="ACT" />ACT <br />
+<input type="checkbox" name="DBT" id="DBT" />DBT <br />
+<input type="checkbox" name="CBT" id="CBT" />CBT <br />
+<input type="checkbox" name="nonCBT" id="nonCBT" />Non-CBT</p> </td>
+          </tr>
+          <tr>
+          </tr>
+        </table>
+        </div>
+         <div id="visShowControls6" class="radiusCornersOutlined">
+          <table class="legend" width="100%">
+            <tr>
+              <td class="labelHeading1">Query</td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top;" disabled>
+                <input type="checkbox" name="time2recover" id="time2recover" />
+              Time to Recovery
+                <br />
+                <input type="checkbox" name="RespondNon" id="RespondNon" />
+                Responder vs. Non-Responders<br />
+                <input type="checkbox" name="SuicideRisk" id="SuicideRisk" />
+                Suicide Risk
+                <br />
+				<br/>
+                <button class="chromeDisabled" type="button" name="CustomQuery" id="CustomQuery">Create Custom Query</button>
+				
+             </td>
+            </tr>
+          </table>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+
+    <div id="rightPanel" class="floatRight">
+      <div class="pageHeading">Multi Client View</div>
+        <div id="container">
+        </div>
+        <div id="visClientList">
+            <div class="radiusCorners">
+                <!-- client list table -->
+               <p id="clientList" class="labelHeading1">Client List</p>                
+                <table width="100%" class="clientlisttable">
+                  <tr>
+                    <th width="12%">Therapist ID</th>
+                    <th width="9%" >Client ID</th>
+                    <th width="9%" >Session #</th>
+                    <th width="17%">Treatment</th>
+                    <th width="25%">Tags</th>
+                    <th width="11%">Suicidal</th>
+                    <th width="17%">Progress</th>
+                  </tr>
+                  <tr onMouseOver="mouseOverRow(this);"  onMouseOut="mouseOutRow(this);">
+                    <td>1001</td>
+                    <td>5</td>
+                    <td>15</td>
+                    <td>BA</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>good</td>
+                  </tr>
+                  <tr onMouseOver="mouseOverRow(this);"  onMouseOut="mouseOutRow(this);">
+                    <td>1001</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>CBT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr onMouseOver="mouseOverRow(this);"  onMouseOut="mouseOutRow(this);">
+                    <td>1001</td>
+                    <td>10</td>
+                    <td>7</td>
+                    <td>Non-CBT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>flat</td>
+                  </tr>
+                  <tr onMouseOver="mouseOverRow(this);"  onMouseOut="mouseOutRow(this);">
+                    <td>1001</td>
+                    <td>11</td>
+                    <td>5</td>
+                    <td>BA</td>
+                    <td>&nbsp;</td>
+                    <td><img src="http://dl.dropbox.com/u/23333775/reddot_sm.png" alt="Suicidal warning" /></td>
+                    <td>good</td>
+                  </tr>
+                  <tr onMouseOver="mouseOverRow(this);"  onMouseOut="mouseOutRow(this);">
+                    <td>1001</td>
+                    <td>12</td>
+                    <td>2</td>
+                    <td>DBT</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>good</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr >
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>    
+</content>
+
+<!-- menu panel -->
+<div class="panel">
+
+<img src="http://dl.dropbox.com/u/23333775/Logo.jpg" class="logo"/>
+
+<div style="clear:both;"></div>
+<div class="columns">
+
+<p class="menu1">Patients</p>
+<p class="number">&nbsp;&nbsp;&nbsp;5 <span class="menu1b">today</span></p>
+<p></p>
+<p class="menu1">Tasks</p>
+<p class="number">&nbsp;&nbsp;&nbsp;7 <span class="menu1b">due</span></p>
+
+<p class="menu2">Community</p>
+<p class="number">&nbsp;&nbsp;&nbsp;6 <span class="menu2b">new</span></p>
+
+</div>
+<div style="clear:both;"></div>
+
+</div>
+<a class="trigger" href="#">today<br /></a>
+
+<!--single client view -->
+
+<a href="https://dl-web.dropbox.com/get/Final%20Project/Development/current/multiClientDashboard.html?w=c498b8ca" class="triggerview" >show single client view</a>
+
+<!--compare pane on right side  -->
+<div class="panelright">
+
+<div style="clear:both;"></div>
+<div class="columnsright">
+
+            <div id="comparisonCharts">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+                <span class="labelHeadingComp">to my clinic</span>
+                <img class="comparison" src="http://dl.dropbox.com/u/76256673/compClinic.jpg"/>
+                <br/>
+                <br/>
+                <span class="labelHeadingComp">to top 20% therapists</span>
+                <img class="comparison" src="http://dl.dropbox.com/u/76256673/compTop20.jpg"/>
+            </div>
+
+</div>
+<div style="clear:both;"></div>
+
+</div>
+<a class="triggerright" href="#">Compare</a>
+
+<!--end compre pane on right side -->
+
+
+</div>
+</body>
+</html>
