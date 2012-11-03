@@ -8,6 +8,23 @@
 
 
 <style>
+
+
+ /*pretty scroll bar */  
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
     /* general classes and settings */
     .floatLeft {
     float: left;
@@ -42,7 +59,7 @@
         /* believe these just for compat with firefox, chrome? */
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .radiusCornersOutlined {
@@ -60,6 +77,7 @@
         /* believe these just for compat with firefox, chrome? */
         -moz-border-radius: 10px; 
         -webkit-border-radius: 10px; 
+        margin-bottom: 8px;
     }
 
     .labelHeading1 {
@@ -188,7 +206,7 @@ border-bottom-right-radius: 20px;
 display: block;
 filter: alpha(opacity=70);
 opacity: .70;
-background:#7B8EA6;
+background:#435568;
 }
 
 a.active.trigger {
@@ -318,7 +336,7 @@ border-bottom-right-radius: 20px;
 display: block;
 filter: alpha(opacity=70);
 opacity: .70;
-background:#7B8EA6;
+background:#435568;
 }
 
 a.active.triggerview {
@@ -388,7 +406,10 @@ padding: 0 0 0 0;
 
     }
 
-
+	.chromeDisabled {
+		opacity: .3;
+	}
+	
     #content {
         /* dimensions of overall dashboard (ipad dimensions) */
 		width: 1024px;
@@ -448,6 +469,7 @@ padding: 0 0 0 0;
       font-weight: bold;
       color:#504F43;
       line-height: 26px;
+      text-align: center;
     }
 	
 	.ProgIndicator {
@@ -530,80 +552,14 @@ padding: 0 0 0 0;
     padding: 3px;
     border: 1px solid #FFFFFF;   
     }
-	
-.meter {
-	height: 8px;  /* Can be anything */
-	position: relative;
-	background: #555;
-	vertical-align:top;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
-	padding: 4px;
-	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
-	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
-	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
-}
 
-.meter > span {
-	display: block;
-	height: 100%;
-	   -webkit-border-top-right-radius: 8px;
-	-webkit-border-bottom-right-radius: 8px;
-	       -moz-border-radius-topright: 8px;
-	    -moz-border-radius-bottomright: 8px;
-	           border-top-right-radius: 8px;
-	        border-bottom-right-radius: 8px;
-	    -webkit-border-top-left-radius: 20px;
-	 -webkit-border-bottom-left-radius: 20px;
-	        -moz-border-radius-topleft: 20px;
-	     -moz-border-radius-bottomleft: 20px;
-	            border-top-left-radius: 20px;
-	         border-bottom-left-radius: 20px;
-	background-color: rgb(43,194,83);
-	background-image: -webkit-gradient(
-	  linear,
-	  left bottom,
-	  left top,
-	  color-stop(0, rgb(43,194,83)),
-	  color-stop(1, rgb(84,240,84))
-	 );
-	background-image: -webkit-linear-gradient(
-	  center bottom,
-	  rgb(43,194,83) 37%,
-	  rgb(84,240,84) 69%
-	 );
-	background-image: -moz-linear-gradient(
-	  center bottom,
-	  rgb(43,194,83) 37%,
-	  rgb(84,240,84) 69%
-	 );
-	background-image: -ms-linear-gradient(
-	  center bottom,
-	  rgb(43,194,83) 37%,
-	  rgb(84,240,84) 69%
-	 );
-	background-image: -o-linear-gradient(
-	  center bottom,
-	  rgb(43,194,83) 37%,
-	  rgb(84,240,84) 69%
-	 );
-	-webkit-box-shadow:
-	  inset 0 2px 9px  rgba(255,255,255,0.3),
-	  inset 0 -2px 6px rgba(0,0,0,0.4);
-	-moz-box-shadow:
-	  inset 0 2px 9px  rgba(255,255,255,0.3),
-	  inset 0 -2px 6px rgba(0,0,0,0.4);
-	position: relative;
-	overflow: hidden;
-}	
+
   .homeworklist {
 	  padding:0;
 	  margin:0;
 	  text-align:right
 	  }
 	  
-
       
     .legend {
 	 font-size:14px;
@@ -663,6 +619,7 @@ border-bottom: 1px solid #EAEAEA;
 
 .heatseverity {
 color:#666;
+font-size:12px;
 
 	}	
 
@@ -705,7 +662,7 @@ padding-left:5px;
 padding-right:5px;
 	}
 .TitleheatcellSevere {
-background-color:#D62728;
+background-color:#E03826;
 border-left: 1px solid #EAEAEA;
 border-right: 1px solid #EAEAEA;
 border-bottom: 1px solid #999;
@@ -768,6 +725,77 @@ padding-right:5px;
     }
 
 
+	
+.meter {
+	height: 8px;  /* Can be anything */
+	position: relative;
+	background: #555;
+	vertical-align:top;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	padding: 4px;
+	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	   -webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	       -moz-border-radius-topright: 8px;
+	    -moz-border-radius-bottomright: 8px;
+	           border-top-right-radius: 8px;
+	        border-bottom-right-radius: 8px;
+	    -webkit-border-top-left-radius: 20px;
+	 -webkit-border-bottom-left-radius: 20px;
+	        -moz-border-radius-topleft: 20px;
+	     -moz-border-radius-bottomleft: 20px;
+	            border-top-left-radius: 20px;
+	         border-bottom-left-radius: 20px;
+	background-color: white;
+	background-image: -webkit-gradient
+    (
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0, white,
+	  color-stop(1, rgb(84,240,84))
+	 );
+	background-image: -webkit-linear-gradient(
+	  center bottom,
+	  #B28567 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -moz-linear-gradient(
+	  center bottom,
+	  #B28567 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -ms-linear-gradient(
+	  center bottom,
+	  #B28567 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -o-linear-gradient(
+	  center bottom,
+	  #B28567 37%,
+	  rgb(84,240,84) 69%
+	 );
+	-webkit-box-shadow:
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	-moz-box-shadow:
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;
+}	
+
+
+
 
 </style>
 
@@ -776,38 +804,26 @@ padding-right:5px;
 function visControlChanged(e) {
     switch(e.target.id) {
     case "chkDepression":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));        
+		e.target.checked ? window.chart.series[0].show() : window.chart.series[0].hide();
         break;
         
     case "chkAnxiety":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+		e.target.checked ? window.chart.series[1].show() : window.chart.series[1].hide();
         break;
         
     case "chkStress1":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
-        break;
-
-    case "chkHealth":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+		e.target.checked ? window.chart.series[2].show() : window.chart.series[2].hide();
         break;
 
     case "chkSuicide":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
-        break;
-        
-    case "chkTrendLine":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
-        break;
-		
-    case "chkAlliance":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+   		e.target.checked ? window.chart.series[3].show() : window.chart.series[3].hide();
         break;
 
-    case "chkSocSup":
-        alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
+    case "chkAAQ2":
+        e.target.checked ? window.chart.series[4].show() : window.chart.series[4].hide();
         break;
-        
-    case "chkReady":
+
+	case "chkTrendLine":
         alert("checkbox: " + e.target.id + " is now " + (e.target.checked ? "checked" : "UNchecked"));
         break;
 
@@ -933,10 +949,36 @@ $(document).ready(function(){
 
 <script type="text/javascript">
 $(function() {
+
+	// ----------------------------------
+	// IMPORT THE DATA
+	// ----------------------------------
+
 	//Create an empty array to hold the data
 	var seriesOptions = [];
 	
-	//Import the depression data in from the CSV
+	//Create an empty series for the navigator
+	var emptySeries = [[Date.UTC(2012, 01, 27), 65],
+		[Date.UTC(2012, 02, 05), 65],
+		[Date.UTC(2012, 02, 12), 65],
+		[Date.UTC(2012, 02, 17), 65],
+		[Date.UTC(2012, 02, 24), 65],
+		[Date.UTC(2012, 03, 2), 65],
+		[Date.UTC(2012, 03, 9), 65],
+		[Date.UTC(2012, 03, 16), 65],
+		[Date.UTC(2012, 03, 23), 65],
+		[Date.UTC(2012, 03, 30), 65],
+		[Date.UTC(2012, 04, 6), 65],
+		[Date.UTC(2012, 04, 20), 65],
+		[Date.UTC(2012, 04, 27), 65],
+		[Date.UTC(2012, 05, 4), 65],
+		[Date.UTC(2012, 05, 11), 65],
+		[Date.UTC(2012, 05, 18), 65],
+		[Date.UTC(2012, 05, 23), 65],
+		[Date.UTC(2012, 05, 30), 65],
+		[Date.UTC(2012, 06, 4), 65]];
+	
+	//Import the depression data
 	var depressionData = [[Date.UTC(2012, 01, 27), 42],
 		[Date.UTC(2012, 02, 05), 42],
 		[Date.UTC(2012, 02, 12), 42],
@@ -956,8 +998,23 @@ $(function() {
 		[Date.UTC(2012, 05, 23), 24],
 		[Date.UTC(2012, 05, 30), 19],
 		[Date.UTC(2012, 06, 4), 22]];
+
+
+/*		
+	var testArray = [10,1,"2011, 11, 22",1,0,0,0,1,28,34,18];
 	
-	//Import the anxiety data in	
+	alert ("The length of the array is " + testArray.length);
+	var i;
+
+	for (i = 0; i < testArray.length; i++) {
+		alert("element " + i + " is " + testArray[i]);
+	}
+	
+*/
+
+	
+	
+	//Import the anxiety data
 	var anxietyData = [[Date.UTC(2012, 01, 27), 16],
 		[Date.UTC(2012, 02, 05), 14],
 		[Date.UTC(2012, 02, 12), 14],
@@ -978,7 +1035,7 @@ $(function() {
 		[Date.UTC(2012, 05, 30), 3],
 		[Date.UTC(2012, 06, 4), 3]];
 
-	//Import the stress data in		
+	//Import the stress data
 	var stressData = [[Date.UTC(2012, 01, 27), 38],
 		[Date.UTC(2012, 02, 05), 42],
 		[Date.UTC(2012, 02, 12), 38],
@@ -998,8 +1055,11 @@ $(function() {
 		[Date.UTC(2012, 05, 23), 26],
 		[Date.UTC(2012, 05, 30), 24],
 		[Date.UTC(2012, 06, 4), 22]];
-	
-	//Import the AAQ-2 data in
+
+	//Import any suicide markers
+	var suicideData = [[Date.UTC(2012, 2, 5), 25]];
+		
+	//Import the AAQ-2 data
 	var aaq2data = [[Date.UTC(2012, 01, 27), 50],
 		[Date.UTC(2012, 02, 05), 45],
 		[Date.UTC(2012, 02, 12), 45],
@@ -1020,104 +1080,172 @@ $(function() {
 		[Date.UTC(2012, 05, 30), 19],
 		[Date.UTC(2012, 06, 4), 22]];
 
+	//Import lack of progress data
+	var lackOfProgressData = [{
+		x: Date.UTC(2012, 02, 17),
+		title: 'Lack of progress'
+	}, {
+		x: Date.UTC(2012, 02, 24),
+		title: 'Lack of progress'
+	}];
+		
+	//Import the alliance data
+	var allianceData = [[Date.UTC(2012, 2, 24), 78]];
+	
+	//Import the readiness data
+	var readinessData = [[Date.UTC(2012, 2, 24), 12]];
+
 	//Import in the annotations data
 	var annotationsData = [{
 		x: Date.UTC(2012, 2, 17),
 		title: 'N',
 		text: 'discloses has relapsed to drinking; staying up late/oversleeping (videogames)'
+	}, {
+		x: Date.UTC(2012, 2, 5),
+		title: 'N',
+		text: 'lost job; feels trapped, totally alone, increased thoughts RE death'
 	}];
 	
-		
-	//Depression data
+	// ----------------------------------
+	// SET UP DATA FOR CHART
+	// ----------------------------------
+			
+	//Draw depression line
 	seriesOptions[0] = {
 		name : 'Depression',
+		id : 'depression',
 		data : depressionData,
+		color : 'rgb(31, 119, 180)',
 		marker : {
 			enabled : true,
+			shape: 'circle',
 			radius : 3
 		},
 	};
 	
-	//Anxiety data
+	//Draw anxiety line
 	seriesOptions[1] = {
 		name : 'Anxiety',
 		data : anxietyData,
+		color : 'rgb(188, 189, 34)',
 		marker : {
 			enabled : true,
+			shape: 'circle',
 			radius : 3
 		}
 	};
 	
-	//Stress data
+	//Draw stress line
 	seriesOptions[2] = {
 		name : 'Stress',
 		data : stressData,
+		color : 'rgb(148, 103, 189)',
 		marker : {
 			enabled : true,
+			shape: 'circle',
 			radius : 3
+		}
+	};
+	
+	//Suicide marker
+	seriesOptions[3] = {
+		name : 'Suicide',
+		type: 'scatter',
+		data : suicideData,
+		color: '#FF0000',
+		enableMouseTracking: false,
+		marker : {
+			enabled : true,
+			symbol: 'circle',
+			radius : 8
 		}
 	};
 	
 	//AAQ-2 data
-	seriesOptions[3] = {
+	seriesOptions[4] = {
 		yAxis: 1,
 		name : 'AAQ-2',
+		id : 'aaq2',
 		data : aaq2data,
+		color : 'rgb(23, 190, 207)',
 		marker : {
 			enabled : true,
 			radius : 3
 		}
 	};
+		
+	//Draw lack of progress flags
+	seriesOptions[5] = {
+		type : 'flags',
+		name : 'Lack of Progress',
+		data : lackOfProgressData,
+		color: '#3B3B3B',
+		onSeries: 'depression',
+		shape: 'squarepin'
+	};
 	
-	//Note flags on x-axis
-	seriesOptions[4] = {
+	//Draw alliance periodic measure
+	seriesOptions[6] = {
+		name : 'Alliance',
+		type: 'scatter',
+		data : allianceData,
+		color: '#000000',
+		enableMouseTracking: false,
+		marker : {
+			enabled : true,
+			symbol: 'triangle',
+			radius : 6
+		}
+	};
+	
+	// series for special markers (not connected by lines)
+	
+	//Draw readiness periodic measure
+	seriesOptions[7] = {
+		name : 'Readiness',
+		type: 'scatter',
+		data : readinessData,
+		color: '#000000',
+		enableMouseTracking: false,
+		marker : {
+			enabled : true,
+			symbol: 'diamond',
+			radius : 6
+		}
+	};
+	
+	//Draw notation flags
+	seriesOptions[8] = {
 		type: 'flags',
 		name: 'Flags on axis',
 		data: annotationsData,
 		shape: 'circlepin'
 	};
-
-	//Suicide marker
-	seriesOptions[5] = {
-		name : 'Suicide',
-		type: 'scatter',
-		color: '#FF0000',
-		data :
-			[[Date.UTC(2012, 2, 5), 25]],
-		marker : {
-			enabled : true,
-			symbol: 'circle',
-			radius : 8
-			
-		},
-		tooltip: {
-			enabled: false
-		}
-	};
 	
-	//Alliance periodic measure
-	seriesOptions[6] = {
-		name : 'Alliance',
-		type: 'scatter',
-		color: '#000000',
-		data :
-			[[Date.UTC(2012, 2, 5), 20]],
-		marker : {
-			enabled : true,
-			symbol: 'diamond',
-			radius : 3
-		},
-		tooltip: {
-			enabled: false
-		}
+	//Draw fake series
+	seriesOptions[9] = {
+		name : 'Empty Series',
+		id: 'emptySeries',
+		data : emptySeries,
+		visible : false
 	};
 
-	// Create the chart
+	// ----------------------------------
+	// CREATE THE CHART
+	// ----------------------------------
+	
 	window.chart = new Highcharts.StockChart({
 
 		//Specify where to render the new chart
 		chart : {
-			renderTo : 'container'
+			renderTo : 'container',
+			ignoreHiddenSeries: false,
+			zoomType: 'x'
+		},
+		
+		//Remove the chart in the back of the navigator
+		navigator : {
+			baseSeries: 'emptySeries'			
 		},
 	
 		//Disable the range selector
@@ -1143,21 +1271,17 @@ $(function() {
 		    lineWidth: 2
 		}],
 
-		//Specify title
-		title : {
-			text : 'John Doe'
-		},
 
 		//Specify dataset
-		series: seriesOptions		
+		series: seriesOptions
+	
 	});
-
 });
+
 </script>
 
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
-
 
 </head>
 
@@ -1173,12 +1297,12 @@ $(function() {
            <td rowspan="3">	
            <div id="clientPhoto" ><img src="http://dl.dropbox.com/u/23333775/JohnDoe.jpg" />
         
-	     </div></td>
+	     </div>&nbsp;</td>
            <td><form  id="clientName" class="labelClientName">
 <select id="clientList" onchange="clientName()">
   <option>Select client...</option>
   <optgroup>
-  <option class="selectme">Doe, John</option>
+  <option class="selectme" SELECTED >Doe, John</option>
   <option class="selectme">Lightning, Lilly</option>  
   <option class="selectme">West, Mae</option>
   </optgroup>
@@ -1195,9 +1319,7 @@ $(function() {
 		    </ul></td>
        </tr>  
      </table> 
-
 </div>
-
 
 <div id="currentScores" class="radiusCorners"> 
 	<table width="100%" style="margin:0px;padding:0px;">
@@ -1280,7 +1402,7 @@ $(function() {
 					<li style="margin-left:10px;font-size:14px;">Apply for two jobs</td></li>
                 <td id="progHomwk1" width="100px" valign="top">
                 		<div class="meter"> 
-						<span style="width: 50%"></span>
+						<span style="width: 50%" title="50%"></span>
 					</div> 
 				  </li>
 				  </td>
@@ -1289,7 +1411,7 @@ $(function() {
 					<li style="margin-left:10px;font-size:14px;">4 visits to gym</li>
 				</td>
                 <td id="progHomewk2" valign="top">
-                <div class="meter"><span style="width: 75%"></span></div> 
+                <div class="meter"><span style="width: 75%" title="75%"></span></div> 
 				</td>
 				
                 </tr> 
@@ -1298,7 +1420,7 @@ $(function() {
   					<li  style="margin-left:10px;font-size:14px;">Self monitor drinking</li>
 				  </td>
                   <td id="progHomewk3"  valign="top">
-                  <div class="meter"><span style="width: 20%;"></span></div> </td>
+                  <div class="meter"><span style="width: 20%" title="20%"></span></div> </td>
                    </ul>
                 </tr>                   
                  
@@ -1312,33 +1434,30 @@ $(function() {
 	<div id="visShowControls" class="radiusCornersOutlined"> 
 		<span class="labelHeading1">Show</span>
 		<table class="legend">
-			<td width="125"><img src="http://dl.dropbox.com/u/23333775/blue.png" /><input type="checkbox" name="visControl" id="chkDepression">Depression</input></td>
-            <td><img src="http://dl.dropbox.com/u/23333775/red.png" /><input type="checkbox" name="visControl" id="chkSuicide">              
-              Suicidal</td>   
+			<td width="125"><img src="http://dl.dropbox.com/u/23333775/blue.png" /><input type="checkbox" name="visControl" id="chkDepression" checked="checked">Depression</input></td>
+            <td><img src="http://dl.dropbox.com/u/23333775/red.png" /><input type="checkbox" name="visControl" id="chkSuicide" checked="checked">Suicidal</td>   
 			</tr>
             
 			<tr>            
-			<td><img src="http://dl.dropbox.com/u/23333775/olive.png" /><input type="checkbox" name="visControl" id="chkAnxiety">Anxiety</input></td>  
-			<td><img src="http://dl.dropbox.com/u/23333775/teale.png" /><input type="checkbox" name="visControl" id="chkAAQ2">
-			  AAQ-2</td>                      
+			<td><img src="http://dl.dropbox.com/u/23333775/olive.png" /><input type="checkbox" name="visControl" id="chkAnxiety" checked="checked">Anxiety</input></td>  
+			<td><img src="http://dl.dropbox.com/u/23333775/teale.png" /><input type="checkbox" name="visControl" id="chkAAQ2" checked="checked">AAQ-2</td>                      
 			</tr>
             
             <tr>
-			<td><img src="http://dl.dropbox.com/u/23333775/purple.png" /><input type="checkbox" name="visControl" id="chkStress1">Stress</input></td>  
-			<td><img src="http://dl.dropbox.com/u/23333775/gray.png" /><input type="checkbox" name="visControl" id="chkTrendLine">Trend Line</input></td>             
+			<td><img src="http://dl.dropbox.com/u/23333775/purple.png" /><input type="checkbox" name="visControl" id="chkStress1" checked="checked">Stress</input></td>  
+			<td disabled class="chromeDisabled"><img src="http://dl.dropbox.com/u/23333775/gray.png" /><input type="checkbox" name="visControl" id="chkTrendLine" disabled>Trend Line</input></td>             
             </tr>
-           
 		</table>
 
 	  <p class="labelHeading2">Periodic Measures</p>
 		<table class="legend">
         	<tr>
-            <td width="125px"><span style="font-size:18px;font-weight:bold;">&Delta;</span><span class="periodic">Alliance</span></input></td>
-			<td><span style="font-size:18px;font-weight:bold;">&#9674;</span><span class="periodic">Readiness</span></input></td>
+            <td width="125px"><img src="http://dl.dropbox.com/u/23333775/triangle.jpg"><span class="periodic">Alliance</span></input></td>
+			<td><img src="http://dl.dropbox.com/u/23333775/diamond.jpg"><span class="periodic">Readiness</span></input></td>
 			</tr>
             
 			<tr>            
-			<td><span style="font-size:16px;font-weight:bold;">&#927;</span><span class="periodic">Social Support</span></input></td>			            <td>&nbsp;</td>          
+			<td><img src="http://dl.dropbox.com/u/23333775/circle.jpg"><span class="periodic">Social Support</span></input></td>			            <td>&nbsp;</td>          
           
             </tr>      
 
@@ -1350,38 +1469,58 @@ $(function() {
   <div class="pageHeading">Single Client View</div>
 		<div id="container">
 		</div>
-		<div id="visTable">
-
+		<div id="visTable"><span style="padding-left:30px; color:#6D869F;">Session Date</span>
+<br />
 <div style="float:right;"><span class="heatseverity">DASS Scores</span> <img src="http://dl.dropbox.com/u/23333775/heatlegend.png" title="Severe | Moderate | Mild | Normal" atyle="float:right;"/>
-        <span class="heatseverity"> DASS Questions</span> <img src="http://dl.dropbox.com/u/23333775/questionlegend.png" title="3&nbsp;&nbsp; |&nbsp;&nbsp;2&nbsp;&nbsp;| &nbsp;&nbsp;1 &nbsp;&nbsp;| &nbsp;&nbsp;0"/> </div>
+        <span class="heatseverity"> DASS Questions</span> <img src="http://dl.dropbox.com/u/23333775/questionlegend.png" title="3&nbsp;&nbsp; |&nbsp;&nbsp;2&nbsp;&nbsp;| &nbsp;&nbsp;1 &nbsp;&nbsp;| &nbsp;&nbsp;0"/>&nbsp;&nbsp;&nbsp;</div>
 
 <div class="radiusCornersheat">
 
  <table cellspacing="0" cellpadding="0" class="heatmap" width="100%">
     <tr>
-      <td colspan="35" height="15" class="tabletitle">Questions by area</td>
+      <td height="15" class="tabletitle" >Questions by area</td>
+          <td style="font-size:8px;border-right:thin #C7AD66 solid;" title="Jan 27 2012"><div align="center">27</div></td>
+          <td style="font-size:8px;" title="Feb 5 2012"><div align="center">5</div></td>
+          <td style="font-size:8px;" title="Feb 12 2012"><div align="center">12</div></td>
+          <td style="font-size:8px;" title="Feb 17 2012"><div align="center">17</div></td>
+          <td style="font-size:8px;border-right:thin #C7AD66 solid;" title="Feb"><div align="center">24</div></td>
+          <td style="font-size:8px;" title="Mar 2 2012"><div align="center">2</div></td>
+          <td style="font-size:8px;" title="Mar 9 2012"><div align="center">9</div></td>
+          <td style="font-size:8px;" title="Mar 16 2012"><div align="center">16</div></td>
+          <td style="font-size:8px;" title="Mar 23 2012"><div align="center">23</div></td>
+          <td style="font-size:8px;border-right:thin #C7AD66 solid;" title="Mar 30 2012"><div align="center">30</div></td>
+          <td style="font-size:8px;" title="Apr 6 2012"><div align="center">6</div></td>
+          <td style="font-size:8px;" title="Apr 20 2012"><div align="center">20</div></td>
+          <td style="font-size:8px;border-right:thin #C7AD66 solid;" title="Apr 27 2012"><div align="center">27</div></td>
+          <td style="font-size:8px;" title="Apr 4 2012 "><div align="center">4</div></td>
+          <td style="font-size:8px;" title="May 11 2012"><div align="center">11</div></td>
+          <td style="font-size:8px;" title="May 18 2012"><div align="center">18</div></td>
+          <td style="font-size:8px;" title="May 23 2012"><div align="center">23</div></td>
+          <td style="font-size:8px;border-right:thin #C7AD66 solid;" title="May 30 2012"><div align="center">30</div></td>
+          <td style="font-size:8px;border-right:thin #C7AD66 solid;" title="Jun 4 2012"><div align="center">4</div></td>
+          <td colspan="15"></td>
     </tr>
     <tr>
       <td width="158" class="heattitle"><span class="ExpandCollapseheat"><a id="displayGrid1" href="javascript:toggleGrid1();">+</a></span>&nbsp;Depression</td>
-      <td class="TitleheatcellSevere" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellSevere" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellMod" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellMod" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellMild" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellMod" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellMild" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellMild" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellNormal" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellNormal" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellNormal" title="Insert date here">&nbsp;</td>
-      <td class="TitleheatcellNormal" title="Insert date here">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
-      <td class="Titleheatcell" title="">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="38">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="32">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="30">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="28">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="30">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="27">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="25">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="32">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="17">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="15">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="24">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="28">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="24">&nbsp;</td>
+      <td class="TitleheatcellMod" title="19">&nbsp;</td>
+      <td class="TitleheatcellSevere" title="22">&nbsp;</td>
       <td class="Titleheatcell" title="">&nbsp;</td>
       <td class="Titleheatcell" title="">&nbsp;</td>
       <td class="Titleheatcell" title="">&nbsp;</td>
@@ -1400,25 +1539,26 @@ $(function() {
   <table cellspacing="0" cellpadding="0" class="heatmap" id="toggleGrid1" style="display:none;"> 
     <tr>
       <td class="heatsubtitle" width="158">no positive feelings</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell2" title="1">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell" title="">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1435,25 +1575,25 @@ $(function() {
       </tr>
     <tr>
       <td class="heatsubtitle">no initiative</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1470,25 +1610,25 @@ $(function() {
       </tr>
     <tr>
       <td class="heatsubtitle">nothing to look forward to</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1505,25 +1645,25 @@ $(function() {
       </tr>
     <tr>
       <td class="heatsubtitle">felt blue</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1540,26 +1680,25 @@ $(function() {
       </tr>
     <tr>
       <td class="heatsubtitle">not enthusiastic</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1575,25 +1714,25 @@ $(function() {
       </tr>
     <tr>
       <td class="heatsubtitle">felt wasn't worth much</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1610,25 +1749,25 @@ $(function() {
       </tr>
     <tr>
       <td class="heatsubtitle">felt life meaningless</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell3">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell2">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell1">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell0">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
-      <td class="heatcell">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell3" title="3">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
+      <td class="heatcell1" title="1">&nbsp;</td>
+      <td class="heatcell2" title="2">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
       <td class="heatcell">&nbsp;</td>
@@ -1648,25 +1787,25 @@ $(function() {
     
   <tr>
     <td width="158" class="heattitle"><span class="ExpandCollapseheat"><a id="displayGrid2" href="javascript:toggleGrid2();">+</a></span>&nbsp;Anxiety</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="16">&nbsp;</td>
+    <td class="TitleheatcellMod" title="14">&nbsp;</td>
+    <td class="TitleheatcellMod" title="14">&nbsp;</td>
+    <td class="TitleheatcellMod" title="14">&nbsp;</td>
+    <td class="TitleheatcellMod" title="12">&nbsp;</td>
+    <td class="TitleheatcellMod" title="10">&nbsp;</td>
+    <td class="TitleheatcellMild" title="9">&nbsp;</td>
+    <td class="TitleheatcellMild" title="9">&nbsp;</td>
+    <td class="TitleheatcellMod" title="10">&nbsp;</td>
+    <td class="TitleheatcellMild" title="8">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="6">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="5">&nbsp;</td>
+    <td class="TitleheatcellMod" title="10">&nbsp;</td>
+    <td class="TitleheatcellMild" title="8">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="5">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="5">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="3">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="3">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="3">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
@@ -1685,25 +1824,25 @@ $(function() {
 <table cellspacing="0" cellpadding="0" class="heatmap" id="toggleGrid2" style="display:none;"> 
   <tr>
     <td class="heatsubtitle" width="158">dryness of mouth</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1720,25 +1859,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">breathing difficulties</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1755,25 +1894,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">trembling</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1790,25 +1929,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle"> panic attack worries</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1825,25 +1964,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">felt close to panic</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1860,25 +1999,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">aware of heart rate/beat</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1895,24 +2034,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">felt scared without reason</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -1932,25 +2072,25 @@ $(function() {
  <table cellspacing="0" cellpadding="0" class="heatmap" width="100%">
   <tr>
     <td width="158" class="heattitle"><span class="ExpandCollapseheat"><a id="displayGrid3" href="javascript:toggleGrid3();">+</a></span>&nbsp;Stress</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="38">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="38">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="42">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="41">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="40">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="40">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="38">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="36">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="28">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="28">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="40">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="36">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="33">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="28">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="26">&nbsp;</td>
+    <td class="TitleheatcellMod" title="24">&nbsp;</td>
+    <td class="TitleheatcellMod" title="22">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
@@ -1969,25 +2109,25 @@ $(function() {
 <table cellspacing="0" cellpadding="0" class="heatmap" id="toggleGrid3" style="display:none;">   
   <tr>
     <td class="heatsubtitle" width="158">hard to wind down</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2004,25 +2144,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">over-react to situations</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2039,25 +2179,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">nervous energy</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2074,25 +2214,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">getting agitated</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2109,26 +2249,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">difficult to relax</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2144,25 +2283,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">intolerant of interuptions</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2180,25 +2319,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">felt rather touchy</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell3" title="3">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2217,25 +2356,25 @@ $(function() {
  <table cellspacing="0" cellpadding="0" class="heatmap" width="100%">
   <tr>
     <td width="158" class="heattitle"><span class="ExpandCollapseheat"><a id="displayGrid4" href="javascript:toggleGrid4();">+</a></span>&nbsp;Suicidal</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
-    <td class="Titleheatcell">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="2/1">&nbsp;</td>
+    <td class="TitleheatcellSevere" title="1/0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
+    <td class="TitleheatcellNormal" title="0">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
     <td class="Titleheatcell">&nbsp;</td>
@@ -2254,25 +2393,25 @@ $(function() {
   <table cellspacing="0" cellpadding="0" class="heatmap" id="toggleGrid4" style="display:none;"> 
   <tr>
     <td class="heatsubtitle" width="158">suicidal ideation</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell2" title="2">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2289,25 +2428,25 @@ $(function() {
     </tr>
   <tr>
     <td class="heatsubtitle">plan for suicide</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
-    <td class="heatcell">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell1" title="1">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
+    <td class="heatcell0" title="0">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
     <td class="heatcell">&nbsp;</td>
@@ -2356,7 +2495,7 @@ $(function() {
 
 <!--single client view -->
 
-<a href="https://dl-web.dropbox.com/get/Final%20Project/Development/current/singleClientDashboard.html?w=c498b8ca" class="triggerview" >show multi client view</a>
+<a href="https://dl-web.dropbox.com/get/Final%20Project/Development/current/singleClientDashboard.html" class="triggerview" >show multi client view</a>
 
 
 
