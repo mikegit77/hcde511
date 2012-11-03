@@ -6,7 +6,6 @@
 //
 
 
-
 // set initial animation widths for the progress meters (under homework)
 $(function() {
     $(".meter > span").each(function() {
