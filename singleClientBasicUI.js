@@ -1,3 +1,4 @@
+// set initial animation widths for the progress meters (under homework)
 $(function() {
 	$(".meter > span").each(function() {
 		$(this)
@@ -8,7 +9,8 @@ $(function() {
 			}, 1200);
 	});
 });
-	
+
+// activate animations for tabs at top of page (today, show multiClientView)
 $(document).ready(function(){
 	$(".trigger").click(function(){
 		$(".panel").toggle("fast");
@@ -130,5 +132,5 @@ function toggleGrid4() {
 }
 
 
-// when page loads, add eventlisteners
+// when page loads, add eventListeners
 window.addEventListener('load', addListeners, false);
